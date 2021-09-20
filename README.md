@@ -30,7 +30,7 @@ Every function comes with a set of adjustable parameters, which can be inputted 
 
 
 
-# -------- PROBLEM 1: Light-leak/rainbow
+# -------- FILTER 1: Light-leak/rainbow
 
  - rainbow: This must be a Bool. When set to True, the rainbow effect will be applied to the light leak. By default this is False.
 
