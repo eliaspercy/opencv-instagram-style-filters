@@ -3,24 +3,24 @@ Using OpenCV for Python, I developed four adjustable instagram-style image filte
 
 The functions can be imported into a Python environment with the command
 
->>> from cmcz82 import *
+> from cmcz82 import *
 
 
 Alternatively, the functions can be imported individually as follows:
 
->>> from cmcz82 import problem1
->>> from cmcz82 import problem2
->>> from cmcz82 import problem3
->>> from cmcz82 import problem4
+> from cmcz82 import problem1
+> from cmcz82 import problem2
+> from cmcz82 import problem3
+> from cmcz82 import problem4
 
 
 All the functions can be run using default parameters as follows:
 
->>> problem1(image_path=IMAGE_PATH)
+> problem1(image_path=IMAGE_PATH)
 
 Where IMAGE_PATH is a string representing the location of an image file, for instance:
 
->>> problem1(image_path='./face1.jpg')
+> problem1(image_path='./face1.jpg')
 
 
 
@@ -30,7 +30,7 @@ Every function comes with a set of adjustable parameters, which can be inputted 
 
 
 
-# -------- PROBLEM 1
+# -------- PROBLEM 1: Light-leak/rainbow
 
  - rainbow: This must be a Bool. When set to True, the rainbow effect will be applied to the light leak. By default this is False.
 
@@ -48,16 +48,16 @@ Every function comes with a set of adjustable parameters, which can be inputted 
 
 --- EXAMPLE USAGES
 
->>> problem1(image_path='./face1.jpg', rainbow=False, darkening_coefficient=0.4, blending_coefficient=0.7)
+> problem1(image_path='./face1.jpg', rainbow=False, darkening_coefficient=0.4, blending_coefficient=0.7)
 
->>> problem1(image_path='./face2.jpg', rainbow=True, brightening_coefficient=0.1, darkening_coefficient=0.9, blending_coefficient=0.8, rainbow_strength=0.5, filter_centre=0.6)
+> problem1(image_path='./face2.jpg', rainbow=True, brightening_coefficient=0.1, darkening_coefficient=0.9, blending_coefficient=0.8, rainbow_strength=0.5, filter_centre=0.6)
 
->>> problem1(image_path='./face1.jpg', rainbow=True, brightening_coefficient=0.2, darkening_coefficient=0.5, blending_coefficient=0.9, filter_centre=0.6, rainbow_strength=0.3)
-
-
+> problem1(image_path='./face1.jpg', rainbow=True, brightening_coefficient=0.2, darkening_coefficient=0.5, blending_coefficient=0.9, filter_centre=0.6, rainbow_strength=0.3)
 
 
-# -------- PROBLEM 2
+
+
+# -------- FILTER 2: Sketch/charcoal 
 
  - colour: This must a be a string belonging to the set {'purple', 'blue', 'green', 'red'}. If a valid colour is used, the colour pencil mode is toggled. By default this is set to none (i.e., monochrome mode).
 
@@ -73,16 +73,16 @@ Every function comes with a set of adjustable parameters, which can be inputted 
 
 --- EXAMPLE USAGES
 
->>> problem2(image_path='./face2.jpg', canvas_stroke_rate=0.7, canvas_blending_coefficient=0.6, canvas_stroke_width=0.3)
+> problem2(image_path='./face2.jpg', canvas_stroke_rate=0.7, canvas_blending_coefficient=0.6, canvas_stroke_width=0.3)
 
->>> problem2(image_path='./face1.jpg', colour='blue', canvas_stroke_rate=0.6, canvas_blending_coefficient=0.5, canvas_stroke_width=0.2)
+> problem2(image_path='./face1.jpg', colour='blue', canvas_stroke_rate=0.6, canvas_blending_coefficient=0.5, canvas_stroke_width=0.2)
 
->>> problem2(image_path='./face2.jpg', colour='purple', canvas_blending_coefficient=0)
-
-
+> problem2(image_path='./face2.jpg', colour='purple', canvas_blending_coefficient=0)
 
 
-# -------- PROBLEM 3
+
+
+# -------- FILTER 3: Bilateral smoothing (beautification) and seasonal filters
 
  - smoothing_coefficient: Must be an int. Determines the window size for the bilateral smoothing. 0 will indicate no bilateral smoothing. By default this is set to 2 (which denotes a 5x5 window).
 
@@ -96,18 +96,18 @@ Every function comes with a set of adjustable parameters, which can be inputted 
 
 --- EXAMPLE USAGES
 
->>> problem3(image_path='./face2.jpg', sub_filter='none', smoothing_coefficient=3)
+> problem3(image_path='./face2.jpg', sub_filter='none', smoothing_coefficient=3)
 
->>> problem3(image_path='./face1.jpg', sub_filter='mid-autumn', smoothing_coefficient=1)
+> problem3(image_path='./face1.jpg', sub_filter='mid-autumn', smoothing_coefficient=1)
 
->>> problem3(image_path='./face2.jpg', sub_filter='late-spring', smoothing_coefficient=1)
+> problem3(image_path='./face2.jpg', sub_filter='late-spring', smoothing_coefficient=1)
 
->>> problem3(image_path='./face1.jpg', sub_filter='late-summer', contrast_intensity=40, smoothing_coefficient=2) 
-
-
+> problem3(image_path='./face1.jpg', sub_filter='late-summer', contrast_intensity=40, smoothing_coefficient=2) 
 
 
-# -------- PROBLEM 4
+
+
+# -------- PROBLEM 4: Face whirl!
 
  - radius: Must be a positive integer. Determines the radius of the swirl effect. By default this is 160.
 
@@ -127,17 +127,17 @@ Every function comes with a set of adjustable parameters, which can be inputted 
 
 --- EXAMPLE USAGES
 
->>> problem4(image_path='./face2.jpg', radius=160, strength=-2.5, prefilter=False, bilinear_interpolation=True)
+> problem4(image_path='./face2.jpg', radius=160, strength=-2.5, prefilter=False, bilinear_interpolation=True)
 
->>> problem4(image_path='./face1.jpg', radius=75, strength=-2)
+> problem4(image_path='./face1.jpg', radius=75, strength=-2)
 
->>> problem4(image_path='./face2.jpg', radius=120, strength=3)
+> problem4(image_path='./face2.jpg', radius=120, strength=3)
 
->>> problem4(image_path='./face2.jpg', radius=200, strength=-4, prefilter=True)
+> problem4(image_path='./face2.jpg', radius=200, strength=-4, prefilter=True)
 
->>> problem4(image_path='./face1.jpg', radius=90, strength=1, prefilter=True, bilinear_interpolation=False, cut_off_freq=100)
+> problem4(image_path='./face1.jpg', radius=90, strength=1, prefilter=True, bilinear_interpolation=False, cut_off_freq=100)
 
->>> problem4(image_path='./face1.jpg', radius=90, strength=1.8, prefilter=True, bilinear_interpolation=True, cut_off_freq=300, order=3)
+> problem4(image_path='./face1.jpg', radius=90, strength=1.8, prefilter=True, bilinear_interpolation=True, cut_off_freq=300, order=3)
 
 
 
